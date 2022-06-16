@@ -1,0 +1,160 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Catalyst Eastern Town Hall – Cardano360</title><link>/id/docs/cardano360-technical/</link><description>Recent content in Cardano360 on Catalyst Eastern Town Hall</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/id/docs/cardano360-technical/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Cardano360 - Apr 22</title><link>/id/docs/cardano360-technical/apr-22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/cardano360-technical/apr-22/</guid><description>
+&lt;h3 id="1-mulai-epoch-335-minggu-lalu-ukuran-block-sudah-ditingkatkan-dari-80-kb--88-kb">&lt;strong>1. Mulai Epoch 335 minggu lalu, ukuran block sudah ditingkatkan dari 80 KB → 88 KB.&lt;/strong>&lt;/h3>
+&lt;h3 id="2-sebanyak-73-spo-sudah-update-versi-node-nya-menjadi-1341-sisanya-masih-di-versi-1330">&lt;strong>2. Sebanyak 73% SPO sudah update versi node-nya menjadi 1.34.1, sisanya masih di versi 1.33.0.&lt;/strong>&lt;/h3>
+&lt;p>Selanjutnya akan diluncurkan versi 1.35 untuk persiapan Vasil Hard Fork.&lt;/p>
+&lt;h3 id="3-persiapan-vasil-hard-fork">&lt;strong>3. Persiapan Vasil Hard Fork&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>Implementasi dilakukan pada tgl 29 Jun 2022 (boundary dari epoch 347).&lt;/li>
+&lt;li>Implementasi tidak akan langsung aktif semuanya di epoch 348, melainkan perlu waktu 1 epoch ke depan hingga semua perubahannya aktif. Tujuannya: untuk memberi waktu kepada para Dapps developer mengimplementasikan perubahan ke dalam Dapps-nya (reference scripts, inline datums, reference inputs).&lt;/li>
+&lt;li>&lt;strong>Saat ini:&lt;/strong>
+&lt;ul>
+&lt;li>Pengembangan coding sudah komplit.&lt;/li>
+&lt;li>Sedang dalam tahap Quality Assurance (QA) dan integrasi dengan beberapa exchange serta partner terkait dengan beragam code base dan produk yang saling terkoneksi. Harapannya, mereka dapat menyesuaikan pengembangan Dapps yang sedang berjalan dengan teknologi terbaru Cardano.&lt;/li>
+&lt;li>Setelah tahap QA dan integrasi selesai (biasa disebut tahapan SIT - system integration testing), barulah dimulai tahapan testing (biasa disebut UAT - user acceptance test), sebelum di-deploy ke production (live environment).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-ouroboros-leios--future-development">&lt;strong>4. Ouroboros Leios → future development&lt;/strong>&lt;/h3>
+&lt;p>Penerapan Input Endorsers, mekanisme konsensus next generation.&lt;/p>
+&lt;p>Cara scaling Cardano hingga ke dekade berikutnya dimana proses transaksi akan dibuat secepat mungkin.&lt;/p>
+&lt;p>Dari yang saat ini masih arsitektur dengan single block dimana cara kerjanya &lt;em>&amp;ldquo;scooping out transactions out of mempool, forging a block, and sending to the peers&amp;rdquo;&lt;/em>, akan dibuat menjadi arsitektur dengan dua block:&lt;/p>
+&lt;p>a. Block pertama untuk menangani konsensus → akan memiliki reference/pointer ke block kedua&lt;/p>
+&lt;p>b. Block kedua untuk menangani transaksi → pemrosesan sangat cepat dimana cara kerjanya &lt;em>&amp;ldquo;blocks will be created on an ad-hoc basis, signed &amp;amp; counter-signed, and will be flying around the newtork on second by second basis&amp;rdquo;&lt;/em>&lt;/p>
+&lt;p>&lt;strong>Kesimpulan&lt;/strong>: daripada harus menunggu 20 detik saat ini untuk mengirim transaksi (Ouroboros Praos, setiap 20 detik proses pemilihan SPO sebagai slot leader untuk melakukan block mining), dengan Ouroboros Leios transaksi akan dikirim terus menerus sehingga L1 Cardano menjadi sangat cepat.&lt;/p></description></item><item><title>Docs: Cardano360 - Feb 22</title><link>/id/docs/cardano360-technical/feb-22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/cardano360-technical/feb-22/</guid><description>
+&lt;h3 id="1-major-release-hingga-feb-2022">&lt;strong>1. Major Release hingga Feb 2022:&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>Ukuran block sudah naik 25% dari 64 KB → 80 KB.&lt;/li>
+&lt;li>Plutus Script Memory Unit setiap transaksi naik 40% dari 10.000.000 → 14.000.000.&lt;/li>
+&lt;li>Plutus Script Memory Unit setiap block naik 24% dari 50.000.000 → 56.000.000.&lt;/li>
+&lt;li>Penggunaan RAM yang lebih sedikit di node (termasuk bagi para pengguna Daedalus) → efisiensi node yang lebih besar.&lt;/li>
+&lt;li>Data Serialization, setiap node dapat membentuk/membangun transaksi sendiri dari CLI dengan format data baru (CDDL: Concise Data Definition Language), jadi tidak perlu bergantung kepada tool pihak ketiga lagi.&lt;/li>
+&lt;li>Fitur Multi Signature sudah siap (pihak A sign duluan, baru pihak B yang sign. Jadi tidak wajib pihak A &amp;amp; B bersamaan sign).&lt;/li>
+&lt;li>Fitur Local Transaction Mempool Monitoring untuk para developer, sehingga ketika membangun Dapps, mereka bisa melihat seberapa banyak aplikasinya memakai resource ketika dieksekusi on-chain.&lt;/li>
+&lt;li>Tool CLI baru untuk SPO mengecek leadership schedule, namun hanya schedule yang berlaku bagi SPO tersebut, tidak dapat melihat schedule milik SPO lain.&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-release-selanjutnya-yang-direncanakan">&lt;strong>2. Release selanjutnya yang direncanakan:&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>Peningkatan performa secara berkelanjutan melalui peningkatan parameter jaringan.&lt;/li>
+&lt;li>UTXO HD project, penyimpanan status ledger menggunakan campuran RAM &amp;amp; Hard Disk Drive → peningkatan utilisasi jaringan yang sangat besar.&lt;/li>
+&lt;li>Topologi jaringan P2P yang dinamis, dimana semua node dan peer dapat secara efisien terhubung satu sama lain.&lt;/li>
+&lt;li>Plutus certification - Cardano Dapps asurance program → untuk memberikan rasa aman kepada para pengguna ketika menggunakan Plutus Dapps, dimana Dapps yang ingin digunakan sudah tersertifikasi terlebih dahulu.&lt;/li>
+&lt;li>IOG bekerja sama dengan Cardano Defi Alliance, dimana Cardano Defi Alliance akan membantu membuatkan tooling untuk para developer Dapps, karena beberapa tooling dari IOG sudah mulai &lt;em>obsolete&lt;/em> dan tidak sempat dikembangkan lagi oleh IOG.&lt;/li>
+&lt;li>Pipelining &amp;amp; Input Endorsers, dengan adanya ini Plutus Script compression tidak diperlukan lagi. Justru yang akan dilakukan adalah Plutus Script enhancements:
+&lt;ul>
+&lt;li>Reference Script&lt;/li>
+&lt;li>Reference Input&lt;/li>
+&lt;li>Shared Redeemers &amp;amp; Inline Datums&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Cardano360 - Jan 22</title><link>/id/docs/cardano360-technical/jan-22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/cardano360-technical/jan-22/</guid><description>
+&lt;h3 id="1-versi-node-terbaru-133">&lt;strong>1. Versi node terbaru 1.33&lt;/strong>&lt;/h3>
+&lt;p>Banyak efisiensi dan fitur - fitur elegan di dalam versi node terbaru ini yang membuatnya dapat tersinkronisasi dengan setiap komputer di luar sana. Versi ini baru permulaan saja dari tahapan scaling Basho di tahun 2022.&lt;/p>
+&lt;h3 id="2-rencana-core-network-adjustment-di-l1">&lt;strong>2. Rencana Core Network Adjustment di L1&lt;/strong>&lt;/h3>
+&lt;p>Tujuannya untuk memberikan ruang waktu yang cukup bagi untuk proses propagasi block dengan cara meningkatkan efisiensi melalui Pipelining &amp;amp; Input Endorsers. Waktu yang dihemat nantinya dapat digunakan untuk:&lt;/p>
+&lt;ul>
+&lt;li>Meningkatkan ukuran block.&lt;/li>
+&lt;li>Meningkatkan batasan resource Plutus script (memory unit, CPU, dll).&lt;/li>
+&lt;/ul>
+&lt;p>Tahapan rollout berdasarkan periode yang telah ditetapkan yakni di bulan Feb, Jun, &amp;amp; Oct 2022.&lt;/p>
+&lt;p>Tujuannya adalah agar dapat memberikan waktu ke semua partisipan untuk menyesuaikan segala perubahan yang ada nantinya.&lt;/p>
+&lt;ul>
+&lt;li>Feb → Major Release&lt;/li>
+&lt;li>Jun → Hard Fork dengan initial release Hydra&lt;/li>
+&lt;li>Oct → Memberikan gambaran untuk pengembangan di tahun depan&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Cardano360 - Mar 22</title><link>/id/docs/cardano360-technical/mar-22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/cardano360-technical/mar-22/</guid><description>
+&lt;h3 id="1-versi-node-terbaru-1341">&lt;strong>1. Versi node terbaru 1.34.1&lt;/strong>&lt;/h3>
+&lt;h3 id="2-update-tentang-hydra">&lt;strong>2. Update tentang Hydra&lt;/strong>&lt;/h3>
+&lt;p>Untuk Hydra, tidak diperlukan hardfork dalam implementasinya (tidak termasuk ke dalam hardfork di bulan Jun atau Oct 2022). Namun tentu saja dengan adanya hardfork, akan semakin membantu implementasi Hydra ketika sudah tiba saatnya nanti.&lt;/p>
+&lt;h3 id="3-hardfork-rollout">&lt;strong>3. Hardfork Rollout&lt;/strong>&lt;/h3>
+&lt;p>&lt;strong>a. Vasil - Jun 2022&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Plutus versi 2.0&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>CIP: Cardano Improvement Proposal&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>Reference Inputs (CIP-31)&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>Saat ini&lt;/strong> → sebuah transaksi dapat gagal jika ada transaksi lain yang meng-consume input UTXO yang sama, atau disebut juga contention.&lt;/li>
+&lt;li>&lt;strong>Nanti&lt;/strong> → input UTXO cukup ditunjuk/direferensikan saja, tanpa perlu di-consume. Alhasil banyak transaksi yang dapat diproses secara paralel bersamaan dan meningkatkan concurrency.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Inline Datums (CIP-32)&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>Saat ini&lt;/strong> → masih menggunakan hash.&lt;/li>
+&lt;li>&lt;strong>Nanti&lt;/strong> → Datum hanya berupa simple value acak saja sehingga menghemat memory pemrosesan.&lt;/li>
+&lt;li>&lt;strong>Apa kegunaan Datum?&lt;/strong>
+Sebagai penunjuk bahwa UTXO itu saling berbeda satu sama lain (menjamin determinism dan immutability dari UTXO tersebut). Ketika sebuah transaksi berhasil dijalankan, meng-consume, dan spend UTXO tersebut, UTXO beserta Datum-nya dihapus dari ledger. Output dari transaksi itu harus menghasilkan UTXO baru dengan Datum yang baru juga.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Reference Scripts (CIP-33)&lt;/strong>
+&lt;ul>
+&lt;li>Membuat ukuran script lebih kecil sehingga ukuran memory yang diperlukan juga lebih sedikit dan biaya transaksi menjadi lebih murah.&lt;/li>
+&lt;li>Hal ini memampukan sebuah aplikasi untuk menunjuk/mereferensikan on-chain pre-recorded script dari transaksi - transaksi lain yang telah terjadi sebelumnya.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Redeemers di informasi transaksi&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>Apa kegunaan Redeemer?&lt;/strong> Setiap transaksi membawa sebuah user-specified argument yang disebut Redeemer, yang digunakan sebagai kunci untuk membuka UTXO.&lt;/li>
+&lt;li>&lt;strong>Nanti&lt;/strong> → Redeemer dapat berisi script yang lebih kompleks untuk menjamin keberhasilan suatu transaksi agar dapat di-input ke blockchain.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>
+&lt;p>Untuk SPO, peningkatan terhadap parameter KES &amp;amp; VRF, dimana waktu validasi di node (node sync time) menjadi lebih cepat sehingga waktu tunggu bagi user juga menjadi lebih singkat.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Penangangan Script untuk Collateral (CIP-40)&lt;/strong>
+Beberapa peningkatan yang dilakukan untuk memberikan kepercayaan dan kepastian yang lebih bagi user ketika bertransaksi, diantaranya:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Besaran collateral akan disesuaikan ke nominal yang lebih tepat, sehingga user tidak akan kehilangan lebih besar dari yang diperlukan.&lt;/li>
+&lt;li>Alamat kembalian baru untuk collateral.&lt;/li>
+&lt;li>Dapat menggunakan non-ADA tokens (saat ini collateral hanya dalam bentuk ADA saja).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>b. Chang - Oct 2022 (penjelasan detailnya di update bulanan yang akan datang):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Governance&lt;/li>
+&lt;li>Evolusi smart contract&lt;/li>
+&lt;li>Peningkatan performa&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Cardano360 - May 22</title><link>/id/docs/cardano360-technical/may-22/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/cardano360-technical/may-22/</guid><description>
+&lt;p>Dari sisi teknikal, fokus ke pengembangan Mithril dan masih dalam tahap persiapan untuk Vasil Hard Fork tgl 29 Jun 2022.&lt;/p>
+&lt;p>&lt;img src="https://u.today/sites/default/files/inline-images/24052022%201111.jpg" alt="image">&lt;/p>
+&lt;h3 id="mithril">&lt;strong>Mithril&lt;/strong>&lt;/h3>
+&lt;p>Semakin bertumbuhnya ekosistem, blockchain pun berkembang semakin besar, dan waktu sinkronisasi antar node juga semakin lama.&lt;/p>
+&lt;p>Bagi beberapa aplikasi seperti light wallet (Yoroi, Nami, Eternl, dll) - &lt;em>&lt;strong>Daedalus tidak termasuk karena full node wallet&lt;/strong>&lt;/em>, hal ini menjadi tantangan tersendiri, terlebih bagi para developer yang ingin mengembangkan Dapps di ekosistem. Diperlukan sumber daya yang besar untuk bisa mengunduh &lt;em>full chain state&lt;/em> dari sejak genesis Cardano hingga waktu saat ini, belum lagi untuk memvalidasi transaksi - transaksi yang ada di jaringan.&lt;/p>
+&lt;p>Di sinilah, Mithril muncul sebagai solusi teknologi kriptografi yang eksotik dengan menggunakan &lt;em>&lt;strong>stake based treshold&lt;/strong>&lt;/em>.&lt;/p>
+&lt;blockquote>
+&lt;p>Apa itu &lt;em>&lt;strong>stake based treshold&lt;/strong>&lt;/em>?
+Menggunakan aset yang di-staking sebagai basis untuk membuat patokan atau ambang batas di dalam jaringan.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Apa maksudnya?
+Mithril memanfaatkan sekumpulan SPO untuk menyediakan &lt;em>&lt;strong>certified snapshot&lt;/strong>&lt;/em> dari chain state, dimana snapshot inilah yang akan digunakan sebagai patokan bagi sebuah light wallet atau Dapps yang ingin menjadi node baru (&lt;em>bootstrap node&lt;/em>), tanpa harus mengunduh atau memverifikasi &lt;em>full chain state&lt;/em> Cardano dari sejak genesis.&lt;/p>
+&lt;/blockquote>
+&lt;p>Snapshot - snapshot nantinya bisa dalam beberapa bentuk, seperti &lt;em>pure DB&lt;/em> atau &lt;em>full UTXOs set&lt;/em> sehingga aplikasi seperti light wallet dapat mengandalkan snapshot ini untuk operasionalnya.&lt;/p>
+&lt;p>Sertifikat yang dihasilkan dari Mithril memiliki properti keamanan yang sama seperti konsensus yang digunakan di jaringan utama saat ini yakni Ouroboros Praos.
+User - user Mithril pun memiliki &lt;em>trustless guarantee&lt;/em> yang sama seperti node - node Cardano pada umumnya.&lt;/p>
+&lt;p>&lt;strong>Mithril akan diimplementasi di atas jaringan utama tanpa mengganggu operasional jaringan utama (&lt;em>linking together a stronger and lighter blockchain&lt;/em>)&lt;/strong>.&lt;/p>
+&lt;p>Cara Kerja Mithril:&lt;/p>
+&lt;ol>
+&lt;li>Menghitung jumlah stake yang dimiliki oleh setiap SPO untuk menghasilkan signature.&lt;/li>
+&lt;li>Di interval waktu yang telah ditentukan, SPO akan mencoba untuk signing &lt;em>current state&lt;/em> dari chain (melakukan snapshot).
+Berdasarkan parameter dan jumlah stake yang dimiliki, mereka dapat menghasilkan signature sebanyak satu atau lebih dari satu.
+Mirip seperti tiket lotre, semakin banyak tiket lotre yang dimiliki, semakin besar kemungkinan menang lotre. Dalam hal ini, semakin banyak signature yang dapat dihasilkan oleh SPO tersebut.&lt;/li>
+&lt;li>Setelah jumlah signature yang dihasilkan dari SPO sudah mencukupi, sebuah sertifikat akan di-issue sehingga menjadi &lt;em>certified signature&lt;/em>.&lt;/li>
+&lt;li>User kemudian dapat memverifikasi snapshot tersebut dan memeriksa &lt;em>aggregat signature&lt;/em> dari semua SPO, apakah signature - signature tersebut sah atau tidak.&lt;/li>
+&lt;li>Setelah proses verifikasi sertifikat, user dapat mengunduh snapshot dan melakukan bootstrap node tanpa harus melalui kerumitan untuk memverifikasi &lt;em>full chain state&lt;/em> Cardano dari sejak genesis.&lt;/li>
+&lt;/ol>
+&lt;p>Jaringan Mithril:&lt;/p>
+&lt;ul>
+&lt;li>Signer: dijalankan oleh SPO yang menghasilkan signature atau melakukan snapshot.&lt;/li>
+&lt;li>Middle part: memproses validasi sertifikat dan mengunduh snapshot.&lt;/li>
+&lt;li>Aggregator part: bertanggung jawab atas kumpulan aggregat signature yang akan digunakan oleh user, serta menyimpan snapshot - snapshot yang ukurannya bisa dalam puluhan GB dan terus bertumbuh.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Mithril Library sendiri akan diluncurkan ke publik mulai Jun 2022.&lt;/p>
+&lt;/blockquote></description></item></channel></rss>
